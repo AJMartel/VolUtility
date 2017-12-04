@@ -73,7 +73,7 @@ except Exception as e:
 
 
 def session_creation(request, mem_image, session_id):
-        if 'auth' in config:
+    if 'auth' in config:
         if config['auth']['enable'].lower() == 'true' and not request.user.is_authenticated:
             return HttpResponse('Auth Required.')
      # Get some vars
@@ -310,7 +310,7 @@ def main_page(request, error_line=None):
         error_line = 'Unable to find a volatility version'
         logger.error(error_line)
 
-     if 'auth' in config:
+    if 'auth' in config:
         if config['auth']['enable'].lower() == 'true' and not request.user.is_authenticated:
             return render(request, 'index.html', {'reqauth': True,
                                                   'error_line': error_line
