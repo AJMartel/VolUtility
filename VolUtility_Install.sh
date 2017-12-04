@@ -1,7 +1,7 @@
 cd ~
 #Ubuntu 16.04 LTS
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y
-sudo apt-get -y install autoconf automake autopoint bison build-essential curl docker flex gcc gettext git libimage-exiftool-perl libjpeg8 libjpeg8-dev libmagic-dev libpcre++-dev libssl-dev libtool make nano pcregrep pkg-config python-dev python-lxml python-pip python-pip python-socksipy python-urllib3 python-yara unzip 
+sudo apt-get -y install autoconf automake autopoint bison build-essential curl docker flex gcc gettext git libimage-exiftool-perl libjpeg8 libjpeg8-dev libmagic-dev libpcre++-dev libssl-dev libtool make nano pcregrep pkg-config python-dev python-lxml python-pip python-socks python-urllib3 python-yara unzip    
 sudo -H pip install --upgrade pip
 
 #MongoDB Install
@@ -30,15 +30,15 @@ cd ..
  cd ssdeep-2.13 
  ./configure
  make 
- make install 
- pip install pydeep 
+ sudo make install 
+ sudo -H pip install pydeep 
  cd .. 
  
  # Get the maxmind database for ip lookup
  curl -sSL http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz > GeoLite2-City.mmdb.gz 
  gzip -d GeoLite2-City.mmdb.gz 
  mkdir /usr/share/GeoIP 
- mv GeoLite2-City.mmdb /usr/share/GeoIP/
+ sudo mv GeoLite2-City.mmdb /usr/share/GeoIP/
  
  # Install and Build libpff
  git clone https://github.com/libyal/libpff.git 
@@ -47,11 +47,11 @@ cd ..
  ./autogen.sh 
  ./configure --enable-python 
  make 
- make install 
- ldconfig
+ sudo make install 
+ sudo ldconfig
  
 #VirusTotal-api
-sudo pip install virustotal-api
+sudo -H pip install virustotal-api
 
 #Volatility Install
 git clone https://github.com/volatilityfoundation/volatility.git
@@ -64,7 +64,7 @@ cd ..
 #VolUtility Install
 git clone https://github.com/AJMartel/VolUtility
 cd VolUtility
-sudo pip install -r requirements.txt
+sudo -H pip install -r requirements.txt
 sudo nohup python manage.py runserver 0.0.0.0:8000 &
 
 # Clean Up
