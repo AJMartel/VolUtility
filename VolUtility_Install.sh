@@ -68,4 +68,4 @@ sudo -H pip install -r requirements.txt
 sudo nohup python manage.py runserver 0.0.0.0:8000 &
 
 # Clean Up
- rm -rf ~/git
+sudo rm -rf ~/git
