@@ -39,6 +39,7 @@ cd ..
  gzip -d GeoLite2-City.mmdb.gz 
  mkdir /usr/share/GeoIP 
  sudo mv GeoLite2-City.mmdb /usr/share/GeoIP/
+ sudo -H pip install win-inet-pton
  
  # Install and Build libpff
  git clone https://github.com/libyal/libpff.git 
